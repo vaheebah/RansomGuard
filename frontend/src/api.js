@@ -1,0 +1,15 @@
+import axios from "axios";
+const API = axios.create({ baseURL: "/api" });
+export const getStatus       = () => API.get("/status").then(r => r.data);
+export const getLogs         = (n=80)  => API.get(`/logs?limit=${n}`).then(r => r.data);
+export const getHistory      = (n=30)  => API.get(`/history?limit=${n}`).then(r => r.data);
+export const getStats        = () => API.get("/stats").then(r => r.data);
+export const getMetrics      = () => API.get("/metrics").then(r => r.data);
+export const getAlerts       = () => API.get("/alerts").then(r => r.data);
+export const getThreatIntel  = () => API.get("/threat-intel").then(r => r.data);
+export const getQuarantine   = () => API.get("/quarantine").then(r => r.data);
+export const predictNow      = () => API.get("/predict").then(r => r.data);
+export const startMonitor    = (folder) => API.post("/start", { folder }).then(r => r.data);
+export const stopMonitor     = () => API.post("/stop").then(r => r.data);
+export const scanEntropy     = (path) => API.post("/scan-entropy", { path }).then(r => r.data);
+export const checkExtension  = (ext) => API.get(`/check-extension?ext=${ext}`).then(r => r.data);

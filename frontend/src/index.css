@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+
+body {
+  background: #0a0f1e;
+  color: #e2e8f0;
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+.glow-cyan  { box-shadow: 0 0 20px rgba(0, 245, 255, 0.25); }
+.glow-red   { box-shadow: 0 0 20px rgba(255, 61, 110, 0.35); }
+.glow-green { box-shadow: 0 0 20px rgba(0, 230, 118, 0.25); }
+
+@keyframes scanline {
+  0%   { background-position: 0 -100vh; }
+  100% { background-position: 0 100vh; }
+}
+
+.scan-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,245,255,0.015) 2px,
+    rgba(0,245,255,0.015) 4px
+  );
+  pointer-events: none;
+}
